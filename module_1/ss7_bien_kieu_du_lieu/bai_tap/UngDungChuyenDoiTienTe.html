@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" placeholder="giá trị" id="giatri">
+<select id="tienFrom">
+    <option value="VND">VND</option>
+    <option value="USD">USD</option>
+</select>
+<select id="tienTo">
+    <option value="VND">VND</option>
+    <option value="USD">USD</option>
+</select>
+<input type="button" onclick="chuyendoi()" value="chuyển">
+<p id="ketQua">Kết quả: </p>
+
+<script>
+    function chuyendoi() {
+        let giatri = parseInt(document.getElementById("giatri").value)
+        let tienFrom = document.getElementById("tienFrom").value
+        let tienTo = document.getElementById("tienTo").value
+        if (tienFrom === "USD" & tienTo === "VND")
+        document.getElementById("ketQua").innerText="Kết quả: "+(giatri*23000)
+        else if (tienFrom === "VND" & tienTo === "USD")
+            document.getElementById("ketQua").innerText="Kết quả: "+(giatri/23000)
+            else document.getElementById("ketQua").innerText="Kết quả: "+giatri
+    }
+</script>
+</body>
+</html>
