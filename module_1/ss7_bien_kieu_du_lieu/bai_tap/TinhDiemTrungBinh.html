@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p id = 'diemtrungbinh'></p>
+<p id = 'tongdiem'></p>
+<script>
+    let vatLy = parseFloat(prompt('điểm vật lý: '))
+    let hoaHoc = parseFloat(prompt('điểm hóa học: '))
+    let sinhHoc = parseFloat(prompt('điểm sinh học: '))
+    let tong = vatLy+hoaHoc+sinhHoc;
+    document.getElementById("diemtrungbinh").innerText="Điểm trung bình là " + tong/3
+    document.getElementById("tongdiem").innerText="Tổng điểm là " + tong
+</script>
+</body>
+</html>
