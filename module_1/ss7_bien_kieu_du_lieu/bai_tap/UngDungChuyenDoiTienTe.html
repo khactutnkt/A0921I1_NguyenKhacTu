@@ -19,14 +19,14 @@
 
 <script>
     function chuyendoi() {
-        let giatri = parseInt(document.getElementById("giatri").value)
+        let giaTri = parseInt(document.getElementById("giatri").value)
         let tienFrom = document.getElementById("tienFrom").value
         let tienTo = document.getElementById("tienTo").value
-        if (tienFrom === "USD" & tienTo === "VND")
-        document.getElementById("ketQua").innerText="Kết quả: "+(giatri*23000)
-        else if (tienFrom === "VND" & tienTo === "USD")
-            document.getElementById("ketQua").innerText="Kết quả: "+(giatri/23000)
-            else document.getElementById("ketQua").innerText="Kết quả: "+giatri
+        if (tienFrom === "USD" && tienTo === "VND")
+        document.getElementById("ketQua").innerText="Kết quả: "+(giaTri*23000)
+        else if (tienFrom === "VND" && tienTo === "USD")
+            document.getElementById("ketQua").innerText="Kết quả: "+(giaTri/23000)
+            else document.getElementById("ketQua").innerText="Kết quả: "+giaTri
     }
 </script>
 </body>
