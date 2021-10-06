@@ -8,7 +8,8 @@
 <script>
     let login = prompt("login: ");
     var message;
-    message = (login == 'Employee') ? 'Hello' : (login == 'Director') ? 'Greeting' : (login == '') ? 'No login' : '';
+    message = (login === 'Employee') ? 'Hello'
+        : (login === 'Director') ? 'Greeting' : (login === '') ? 'No login' : '';
     alert(message);
 </script>
 </body>

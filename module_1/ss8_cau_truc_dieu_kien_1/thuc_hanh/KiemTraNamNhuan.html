@@ -7,9 +7,9 @@
 <body>
 <script>
     let year = parseInt(prompt("Nhập vào năm muốn kiểm tra: "));
-    if (year % 4 == 0) {
-        if (year % 100 == 0) {
-            if (year % 400 == 0) {
+    if (year % 4 === 0) {
+        if (year % 100 === 0) {
+            if (year % 400 === 0) {
                 alert(year + " là năm nhuận");
             } else {
                 alert(year + " không là năm nhuận");
