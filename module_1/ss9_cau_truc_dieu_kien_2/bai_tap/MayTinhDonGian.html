@@ -6,6 +6,8 @@
 </head>
 <body>
 <form>
+    <input type="text" id="window" size="10">
+    <input type="reset" value="Reset"> <br/>
     <input type="button" onclick="one()" value="1">
     <input type="button" onclick="two()" value="2">
     <input type="button" onclick="three()" value="3">
@@ -21,11 +23,53 @@
     <input type="button" onclick="nhan()" value="*">
     <input type="button" onclick="chia()" value="/">
     <input type="button" onclick="bang()" value="=">
-
 </form>
 <script>
     function one() {
-
+        document.getElementById("window").value += 1;
+    }
+    function two() {
+        document.getElementById("window").value += 2;
+    }
+    function three() {
+        document.getElementById("window").value += 3;
+    }
+    function four() {
+        document.getElementById("window").value += 4;
+    }
+    function five() {
+        document.getElementById("window").value += 5;
+    }
+    function six() {
+        document.getElementById("window").value += 6;
+    }
+    function seven() {
+        document.getElementById("window").value += 7;
+    }
+    function eight() {
+        document.getElementById("window").value += 8;
+    }
+    function nine() {
+        document.getElementById("window").value += 9;
+    }
+    function zero() {
+        document.getElementById("window").value += 0;
+    }
+    function cong() {
+        document.getElementById("window").value += "+";
+    }
+    function tru() {
+        document.getElementById("window").value += "-";
+    }
+    function nhan() {
+        document.getElementById("window").value += "*";
+    }
+    function chia() {
+        document.getElementById("window").value += "/";
+    }
+    function bang() {
+        var ketQua = eval(document.getElementById('window').value);
+        document.getElementById("window").value = ketQua;
     }
 </script>
 </body>
