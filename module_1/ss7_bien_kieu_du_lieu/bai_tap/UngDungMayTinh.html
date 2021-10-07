@@ -15,22 +15,22 @@
 
 <script>
     function cong() {
-        let value1 = parseInt(document.getElementById("input1").value)
-        let value2 = parseInt(document.getElementById("input2").value)
+        let value1 = parseFloat(document.getElementById("input1").value)
+        let value2 = parseFloat(document.getElementById("input2").value)
         document.getElementById("ketQua").innerText="Kết quả: "+(value1+value2)
     }
     function tru() {
-        let value1 = parseInt(document.getElementById("input1").value)
-        let value2 = parseInt(document.getElementById("input2").value)
+        let value1 = parseFloat(document.getElementById("input1").value)
+        let value2 = parseFloat(document.getElementById("input2").value)
         document.getElementById("ketQua").innerText="Kết quả: "+(value1-value2)
     }function nhan() {
-        let value1 = parseInt(document.getElementById("input1").value)
-        let value2 = parseInt(document.getElementById("input2").value)
+        let value1 = parseFloat(document.getElementById("input1").value)
+        let value2 = parseFloat(document.getElementById("input2").value)
         document.getElementById("ketQua").innerText="Kết quả: "+(value1*value2)
     }function chia() {
-        let value1 = parseInt(document.getElementById("input1").value)
-        let value2 = parseInt(document.getElementById("input2").value)
-        if (value2!=0)
+        let value1 = parseFloat(document.getElementById("input1").value)
+        let value2 = parseFloat(document.getElementById("input2").value)
+        if (value2 !== 0)
             document.getElementById("ketQua").innerText="Kết quả: "+(value1/value2)
         else
             alert("Không thực hiện được phép chia")

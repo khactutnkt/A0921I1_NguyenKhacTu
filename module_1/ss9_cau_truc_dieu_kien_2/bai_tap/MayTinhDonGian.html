@@ -5,71 +5,49 @@
     <title>Title</title>
 </head>
 <body>
-<form>
-    <input type="text" id="window" size="10">
-    <input type="reset" value="Reset"> <br/>
-    <input type="button" onclick="one()" value="1">
-    <input type="button" onclick="two()" value="2">
-    <input type="button" onclick="three()" value="3">
-    <input type="button" onclick="four()" value="4">
-    <input type="button" onclick="five()" value="5"><br/>
-    <input type="button" onclick="six()" value="6">
-    <input type="button" onclick="seven()" value="7">
-    <input type="button" onclick="eight()" value="8">
-    <input type="button" onclick="nine()" value="9">
-    <input type="button" onclick="zero()" value="0"><br/>
-    <input type="button" onclick="cong()" value="+">
-    <input type="button" onclick="tru()" value="-">
-    <input type="button" onclick="nhan()" value="*">
-    <input type="button" onclick="chia()" value="/">
-    <input type="button" onclick="bang()" value="=">
-</form>
+<table>
+    <tr>
+        <td colspan="4"><input type="text" id="window"></td>
+
+    </tr>
+    <tr>
+        <td><input type="button" value="1" onclick="nhap(this.value)"></td>
+        <td><input type="button" value="2" onclick="nhap(this.value)"></td>
+        <td><input type="button" value="3" onclick="nhap(this.value)"></td>
+        <td><input type="button" value="+"  onclick="nhap(this.value)"></td>
+
+    </tr>
+    <tr>
+        <td><input type="button" value="4" onclick="nhap(this.value)"></td>
+        <td><input type="button" value="5" onclick="nhap(this.value)"></td>
+        <td><input type="button" value="6" onclick="nhap(this.value)"></td>
+        <td><input type="button" value="-" onclick="nhap(this.value)"></td>
+
+    </tr>
+    <tr>
+        <td><input type="button" value="7" onclick="nhap(this.value)"></td>
+        <td><input type="button" value="8" onclick="nhap(this.value)"></td>
+        <td><input type="button" value="9" onclick="nhap(this.value)" ></td>
+        <td><button type="button" value="*" onclick="nhap(this.value)" >x</button></td>
+    </tr>
+    <tr>
+        <td><input type="button" value="C" onclick="xoa()"></td>
+        <td><input type="button" value="0" onclick="nhap(this.value)"></td>
+        <td><input type="button" value="=" onclick="tinhKetQua()"></td>
+        <td><input type="button" value="/" onclick="nhap(this.value)"></td>
+    </tr>
+</table>
 <script>
-    function one() {
-        document.getElementById("window").value += 1;
+    function nhap(so) {
+        document.getElementById("window").value +=so;
     }
-    function two() {
-        document.getElementById("window").value += 2;
+    function tinhKetQua() {
+        let bieuThuc=document.getElementById("window").value;
+        // hàm eval() đùng để thực hiện tính 1 giá trị 1 biểu thức
+        document.getElementById("window").value= eval(bieuThuc);
     }
-    function three() {
-        document.getElementById("window").value += 3;
-    }
-    function four() {
-        document.getElementById("window").value += 4;
-    }
-    function five() {
-        document.getElementById("window").value += 5;
-    }
-    function six() {
-        document.getElementById("window").value += 6;
-    }
-    function seven() {
-        document.getElementById("window").value += 7;
-    }
-    function eight() {
-        document.getElementById("window").value += 8;
-    }
-    function nine() {
-        document.getElementById("window").value += 9;
-    }
-    function zero() {
-        document.getElementById("window").value += 0;
-    }
-    function cong() {
-        document.getElementById("window").value += "+";
-    }
-    function tru() {
-        document.getElementById("window").value += "-";
-    }
-    function nhan() {
-        document.getElementById("window").value += "*";
-    }
-    function chia() {
-        document.getElementById("window").value += "/";
-    }
-    function bang() {
-        var ketQua = eval(document.getElementById('window').value);
-        document.getElementById("window").value = ketQua;
+    function xoa() {
+        document.getElementById("window").value="";
     }
 </script>
 </body>
