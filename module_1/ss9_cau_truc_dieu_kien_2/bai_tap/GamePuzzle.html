@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table id="table" border="1">
+    <tr onclick="click1()" >
+        <td>
+            <img src="https://static.thenounproject.com/png/2562250-200.png"
+                 style="width: 200px" id="myImage1">
+        </td>
+    </tr>
+    <tr onclick="click2()">
+        <td>
+            <img src="https://icon-library.com/images/fun-icon/fun-icon-4.jpg"
+                 style="width: 200px " id="myImage2">
+        </td>
+    </tr>
+    <tr onclick="click3()">
+        <td>
+            <img src="https://static.thenounproject.com/png/2546586-200.png"
+                 style="width: 200px " id="myImage3">
+        </td>
+    </tr>
+</table>
+<script>
+    const src1 = "https://static.thenounproject.com/png/2562250-200.png";
+    const src2 ="https://icon-library.com/images/fun-icon/fun-icon-4.jpg";
+    const src3 ="https://static.thenounproject.com/png/2546586-200.png";
+    function click1() {
+        if (document.getElementById("myImage1").src === src1) {
+            document.getElementById("myImage1").src = src2;
+        }else if (document.getElementById("myImage1").src === src2){
+            document.getElementById("myImage1").src = src3;
+        }else {
+            document.getElementById("myImage1").src = src1;
+        }
+        if (document.getElementById("myImage1").src === document.getElementById("myImage2").src
+            && document.getElementById("myImage1").src === document.getElementById("myImage3").src){
+            document.getElementById("table").border = 10;
+        }else {
+            document.getElementById("table").border = 1;
+        }
+    }
+    function click2() {
+        if (document.getElementById("myImage2").src === src2) {
+            document.getElementById("myImage2").src = src3;
+        }else if (document.getElementById("myImage2").src === src3){
+            document.getElementById("myImage2").src = src1;
+        }else {
+            document.getElementById("myImage2").src = src2;
+        }
+        if (document.getElementById("myImage1").src === document.getElementById("myImage2").src
+            && document.getElementById("myImage1").src === document.getElementById("myImage3").src){
+            document.getElementById("table").border = 10;
+        }else {
+            document.getElementById("table").border = 1;
+        }
+    }
+    function click3() {
+        if (document.getElementById("myImage3").src === src3) {
+            document.getElementById("myImage3").src = src1;
+        }else if (document.getElementById("myImage3").src === src1){
+            document.getElementById("myImage3").src = src2;
+        }else {
+            document.getElementById("myImage3").src = src3;
+        }
+        if (document.getElementById("myImage1").src === document.getElementById("myImage2").src
+            && document.getElementById("myImage1").src === document.getElementById("myImage3").src){
+            document.getElementById("table").border = 10;
+        }else {
+            document.getElementById("table").border = 1;
+        }
+    }
+</script>
+</body>
+</html>
