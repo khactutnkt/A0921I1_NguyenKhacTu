@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let num = parseInt(prompt("bạn muốn in ra bao nhiêu số nguyên tố đầu tiên?"));
+    let count = 0;
+    let test, n, i;
+    let nguyenTo = " ";
+    n = 2;
+    while (count < num){
+        test = true;
+        for (i=2; i <= n/2;i++ ){
+            if (n % i === 0){
+                test = false;
+                break;
+            }
+        }
+        if (test){
+            nguyenTo = nguyenTo + n +" <br>";
+            count++;
+        }
+        n++;
+    }
+    document.write(nguyenTo);
+</script>
+</body>
+</html>

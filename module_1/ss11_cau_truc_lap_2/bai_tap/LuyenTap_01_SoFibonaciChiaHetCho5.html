@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let test = 1;
+    let soTruoc = 1, soSau = 1;
+    while (test){
+        if ((soTruoc + soSau) % 5 === 0 ){
+            test = 0;
+        }
+        soSau = soSau + soTruoc;
+        soTruoc = soSau - soTruoc;
+    }
+    alert("Số đầu tiên trong dãy Fibonaci chia hết cho 5 là " + soSau);
+</script>
+</body>
+</html>

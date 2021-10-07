@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let fibonaci = "1 1 ";
+    let soTruoc = 1, soSau = 1;
+    for (var i=1; i<=18; i++){
+        fibonaci = fibonaci + (soTruoc + soSau) +" ";
+        soSau = soSau + soTruoc;
+        soTruoc = soSau - soTruoc;
+    }
+    document.write(fibonaci);
+</script>
+</body>
+</html>

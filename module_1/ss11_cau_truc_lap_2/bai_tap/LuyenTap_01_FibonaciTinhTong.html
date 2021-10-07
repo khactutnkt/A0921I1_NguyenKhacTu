@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let soTruoc = 1, soSau = 1, total = 2;
+    for (var i=1; i<=18; i++){
+        total = total + soTruoc + soSau;
+        soSau = soSau + soTruoc;
+        soTruoc = soSau - soTruoc;
+    }
+    alert("Tổng 20 số Fibonaci đầu tiên là " + total);
+</script>
+</body>
+</html>
