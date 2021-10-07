@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+Good    <input id="good" type="range" min="0" max="1" value="1" onclick="change('good')"> <br/>
+Fast    <input id="fast" type="range" min="0" max="1" value="1" onclick="change('fast')"> <br/>
+Cheep   <input id="cheep" type="range" min="0" max="1" value="0" onclick="change('cheep')">
+<script>
+    let ojbGood = document.getElementById("good");
+    let ojbFast = document.getElementById("fast");
+    let ojbCheep = document.getElementById("cheep");
+    function change(flag) {
+        switch (flag) {
+            case "good":
+                ojbGood.value = 1;
+                if (ojbFast.value == 1 && ojbCheep.value == 1){
+                    ojbFast.value = 0;
+                }
+                break;
+            case "fast":
+                ojbFast.value = 1;
+                if (ojbCheep.value == 1 && ojbGood.value == 1) {
+                    ojbCheep.value = 0;
+                }
+                break;
+            case "cheep":
+                ojbCheep.value = 1;
+                if (ojbGood.value == 1 && ojbFast.value == 1){
+                    ojbGood.value = 0;
+                }
+                break;
+        }
+    }
+</script>
+</body>
+</html>
