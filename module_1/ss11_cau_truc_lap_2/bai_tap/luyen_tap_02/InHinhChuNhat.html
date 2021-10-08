@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let chieuDai = parseInt(prompt("Chiều dài HCN"));
+    let chieuRong = parseInt(prompt("Chiều rộng HCN"));
+    for (var i=1; i<=chieuRong; i++){
+        for (var j=1; j<=chieuDai; j++){
+            if (i===1 || i === chieuRong || j === 1 || j === chieuDai){
+                document.write("*");
+            }else {
+                document.write("\xa0\xa0");
+            }
+        }
+        document.writeln("<br>");
+    }
+</script>
+</body>
+</html>

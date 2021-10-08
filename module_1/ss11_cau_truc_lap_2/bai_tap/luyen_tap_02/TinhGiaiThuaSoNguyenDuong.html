@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let num;
+    let giaiThua = 1;
+    do {
+        num = parseInt(prompt("Nhập vào số nguyên dương"));
+    }while (num<=0)
+    for (var i=1; i<=num;i++){
+        giaiThua *= i;
+    }
+    alert(num+"! = "+giaiThua);
+</script>
+</body>
+</html>
