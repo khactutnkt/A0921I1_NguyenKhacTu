@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var number = parseInt(prompt("nhập vào 1 số"));
+    let numArr = [];
+    let i=0;
+    alert(number);
+    while (number>0){
+        numArr[i]=number % 10;
+        number = Math.floor(number/10);
+        i++;
+    }
+    numArr.reverse();
+    document.write(numArr + "<br>");
+    number = "";
+    for (var j=0; j<numArr.length; j++){
+        if (numArr[j] % 2 === 0 && numArr[j+1] %2 === 0){
+            number += numArr[j] + "-";
+        }else {
+            number += numArr[j];
+        }
+    }
+    document.write(number);
+</script>
+</body>
+</html>
