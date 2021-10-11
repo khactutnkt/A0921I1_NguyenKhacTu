@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var arr = [0,56,-4,5,11,0,0,-7,11,55];
+    var arr2 = arr;
+    var n = 0;
+    let V = parseInt(prompt("Nhập vào số V"));
+    while (arr2.indexOf(V) !== -1){
+        n++;
+        for (var i=arr2.indexOf(V); i<arr2.length; i++){
+            arr[i] = arr[i+1];
+        }
+        arr[9] = 0;
+        arr2 = arr.slice(0,-n)
+    }
+    alert(arr);
+</script>
+</body>
+</html>

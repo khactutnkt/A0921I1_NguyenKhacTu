@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" id="eng" placeholder="English"  oninput="trans()">
+<input type="text" id="vie" placeholder="Vietnamese">
+<script>
+    var english = ["japan", "china", "korea", "taiwan", "vietnam", "india"];
+    var vietnamese = ["Nhật Bản", "Trung Quốc", "Hàn Quốc", "Đài Loan", "Việt Nam", "Ấn Độ"];
+    function trans() {
+        let eng = document.getElementById("eng").value;
+        if (english.indexOf(eng) !== -1){
+            document.getElementById("vie").value = vietnamese[english.indexOf(eng)];
+        }else {
+            document.getElementById("vie").value ="";
+        }
+    }
+</script>
+</body>
+</html>

@@ -5,6 +5,22 @@
     <title>Title</title>
 </head>
 <body>
-
+<script>
+     let str = 'The Quick Brown Fox';
+     var UPPER = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+     var LOWER = 'abcdefghijklmnopqrstuvwxyz';
+     let newStr = "";
+     document.write(str + "<br>");
+    for (var i=0; i<str.length; i++){
+        if (UPPER.indexOf(str[i]) !== -1){
+            newStr += str[i].toLowerCase();
+        }else if (LOWER.indexOf(str[i]) !== 1){
+            newStr += str[i].toUpperCase();
+        }else {
+            newStr += str[i];
+        }
+    }
+    document.write(newStr);
+</script>
 </body>
 </html>

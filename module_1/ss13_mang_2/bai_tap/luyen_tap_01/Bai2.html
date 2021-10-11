@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var arr = [0,56,-4,5,11,10,30,-7,9,5];
+    var viTri = 0;
+    var max = arr[0];
+    for (var i=1; i<arr.length; i++){
+        if (arr[i]>max){
+            max = arr[i];
+            viTri = i;
+        }
+    }
+    alert("Số lớn nhất trong mảng là "+max+", nằm tại vị trí "+viTri);
+</script>
+</body>
+</html>

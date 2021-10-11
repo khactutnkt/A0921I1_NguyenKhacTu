@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var arr = [0,56,-4,5,11,10,30,-7,9,55];
+    var count = 0;
+    var result = "";
+    for (var i=0; i<arr.length; i++){
+        if (arr[i]>=10){
+            count++;
+            result += arr[i] +" ";
+        }
+    }
+    if (count === 0){
+        document.write("không có số nào lớn hơn hoặc bằng 10 trong mảng");
+    }else {
+        document.write("Có "+count+" số lớn hơn hoặc bằng 10 trong mảng. Đó là "+result);
+    }
+</script>
+</body>
+</html>

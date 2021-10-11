@@ -1,0 +1,74 @@
+<html lang="en">
+
+<body>
+<!--<h3>Caro Game Simple</h3>-->
+<!--<p id="carogame" />-->
+<!--<input type="button" value="Player 1" onclick="nguoi1()">-->
+<!--<input type="button" value="Player 2" onclick="nguoi2()">-->
+
+<!--<script>-->
+<!--    let b = document.getElementById("carogame");-->
+<!--    let board = [];-->
+<!--    let data = "";-->
+<!--    for (let i = 0; i < 5; i++) {-->
+<!--        board[i] = new Array(".", ".", ".", ".", ".");-->
+<!--    }-->
+
+<!--    for (let i = 0; i < 5; i++) {-->
+<!--        data += "<br/>";-->
+<!--        for (let j = 0; j < 5; j++) {-->
+<!--            data += board[i][j] + "&nbsp;&nbsp;";-->
+<!--        }-->
+<!--    }-->
+<!--    // data += "<br/><br/><input type='button' value='Change Value' onclick='changeValue()'>"-->
+<!--    data += "<br/><br/><input type='button' value='Player 1' onclick='nguoi1()'>" +-->
+<!--        "<input type='button'value='Player 2' onclick='nguoi2()'>"-->
+<!--    b.innerHTML = data;-->
+
+<!--    function nguoi1() {-->
+<!--        let X = prompt("X: ");-->
+<!--        let Y = prompt("Y: ");-->
+<!--        data = "";-->
+<!--        board[X][Y] = "x";-->
+<!--        for (let i = 0; i < 5; i++) {-->
+<!--            data += "<br/>";-->
+<!--            for (let j = 0; j < 5; j++) {-->
+<!--                data += board[i][j] + "&nbsp;&nbsp;&nbsp;&nbsp;";-->
+<!--            }-->
+<!--        }-->
+<!--        data += "<br/><br/><input type='button' value='Player 1' onclick='nguoi1()'>" +-->
+<!--            "<input type='button'value='Player 2' onclick='nguoi2()'>"-->
+<!--        b.innerHTML = data;-->
+<!--        if (board[x][y-1] === "x" + "&nbsp;&nbsp;&nbsp;&nbsp;" && board[x][y+1] === "x" + "&nbsp;&nbsp;&nbsp;&nbsp;"||-->
+<!--            board[x-1][y] === "x" + "&nbsp;&nbsp;&nbsp;&nbsp;"&& board[x+1][y] === "x" + "&nbsp;&nbsp;&nbsp;&nbsp;"||-->
+<!--            board[x-1][y-1] === "x" + "&nbsp;&nbsp;&nbsp;&nbsp;"&& board[x+1][y+1] === "x"+ "&nbsp;&nbsp;&nbsp;&nbsp;" ||-->
+<!--            board[x+1][y-1] === "x"+ "&nbsp;&nbsp;&nbsp;&nbsp;" && board[x-1][y+1] === "x"+ "&nbsp;&nbsp;&nbsp;&nbsp;"){-->
+<!--            alert("Playrt 1 win");-->
+<!--        }-->
+<!--    }-->
+<!--    function nguoi2() {-->
+<!--        let X = prompt("X: ");-->
+<!--        let Y = prompt("Y: ");-->
+<!--        data = "";-->
+<!--        board[X][Y] = "o";-->
+<!--        for (let i = 0; i < 5; i++) {-->
+<!--            data += "<br/>";-->
+<!--            for (let j = 0; j < 5; j++) {-->
+<!--                data += board[i][j] + "&nbsp;&nbsp;&nbsp;&nbsp;";-->
+<!--            }-->
+<!--        }-->
+<!--        data += "<br/><br/><input type='button' value='Player 1' onclick='nguoi1()'>" +-->
+<!--            "<input type='button'value='Player 2' onclick='nguoi2()'>"-->
+<!--        b.innerHTML = data;-->
+<!--        if (board[x][y-1] === "o" && board[x][y+1] === "o" ||-->
+<!--            board[x-1][y] === "o" && board[x+1][y] === "o" ||-->
+<!--            board[x-1][y-1] === "o" && board[x+1][y+1] === "o" ||-->
+<!--            board[x+1][y-1] === "o" && board[x-1][y+1] === "o"){-->
+<!--            alert("Playrt 2 win");-->
+<!--        }-->
+<!--    }-->
+
+<!--</script>-->
+</body>
+
+</html>
