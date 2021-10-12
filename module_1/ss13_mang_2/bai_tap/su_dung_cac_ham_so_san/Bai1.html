@@ -7,12 +7,13 @@
 <body>
 <script>
     let myColor = ["Red", "Green", "White", "Black"];
-    document.write(myColor + "<br>");
-    while (myColor.length>1){
-        myColor[0] = myColor[0] +"+"+ myColor[1];
-        myColor.splice(1,1);
-    }
-    document.write(myColor + "<br>");
+    document.write(myColor + "<hr>");
+    // while (myColor.length>1){
+    //     myColor[0] = myColor[0] +"+"+ myColor[1];
+    //     myColor.splice(1,1);
+    // }
+    // document.write(myColor + "<br>");
+    document.write(myColor.join("+"));
 </script>
 </body>
 </html>

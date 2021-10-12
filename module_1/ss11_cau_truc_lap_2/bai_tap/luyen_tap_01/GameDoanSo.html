@@ -15,23 +15,7 @@
         let max = parseInt(prompt("Nhập vào số lớn nhất"));
         let number = Math.round(Math.random() * (max - min) + min);
         let numInput = parseInt(prompt("bạn đoán số nào?"));
-        for (var i=1; i<=3; i++){
-            if (numInput === number){
-                alert("Chúc mừng bạn đã chiến thắng ở lần chơi thứ "+i+". Đây là số "+number);
-                break;
-            }
-            if (i<3){
-                if (numInput<number){
-                    numInput = parseInt(prompt("Số bạn đoán đã nhỏ hơn. Thử lại nhé!"));
-                }else {
-                    numInput = parseInt(prompt("Số bạn đoán đã lớn hơn. Thử lại nhé!"));
-                }
-            }else {
-                alert("Ban đã thua. Số đúng là "+number);
-            }
-        }
-        // let i = 1;
-        // do {
+        // for (var i=1; i<=3; i++){
         //     if (numInput === number){
         //         alert("Chúc mừng bạn đã chiến thắng ở lần chơi thứ "+i+". Đây là số "+number);
         //         break;
@@ -45,8 +29,24 @@
         //     }else {
         //         alert("Ban đã thua. Số đúng là "+number);
         //     }
-        //     i++;
-        // }while (i<=3)
+        // }
+        let i = 1;
+        do {
+            if (numInput === number){
+                alert("Chúc mừng bạn đã chiến thắng ở lần chơi thứ "+i+". Đây là số "+number);
+                break;
+            }
+            if (i<3){
+                if (numInput<number){
+                    numInput = parseInt(prompt("Số bạn đoán đã nhỏ hơn. Thử lại nhé!"));
+                }else {
+                    numInput = parseInt(prompt("Số bạn đoán đã lớn hơn. Thử lại nhé!"));
+                }
+            }else {
+                alert("Ban đã thua. Số đúng là "+number);
+            }
+            i++;
+        }while (i<=3)
     }
 </script>
 </body>

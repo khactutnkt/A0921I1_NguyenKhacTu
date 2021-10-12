@@ -8,20 +8,22 @@
 <script>
     var arr = [0,56,-4,5,101,0,0,-7,110,55,-55];
     document.write(arr + "<br> <hr>")
-    // arr.sort(function (a, b) {
-    //     return b - a;
-    // });
-    var trungGian;
-    for (var i=0; i<arr.length-1; i++){
-        for (var j=i+1; j<arr.length; j++){
-            if (arr[i] < arr[j]){
-                trungGian = arr[i];
-                arr[i] = arr[j];
-                arr[j] = trungGian;
-            }
-        }
-        document.write(arr + "<br>");
-    }
+    arr.sort(function (a, b) {
+        return b - a;
+    });
+    document.write(arr + "<br> <hr>")
+
+    // var trungGian;
+    // for (var i=0; i<arr.length-1; i++){
+    //     for (var j=i+1; j<arr.length; j++){
+    //         if (arr[i] < arr[j]){
+    //             trungGian = arr[i];
+    //             arr[i] = arr[j];
+    //             arr[j] = trungGian;
+    //         }
+    //     }
+    //     document.write(arr + "<br>");
+    // }
     // alert(arr);
 </script>
 </body>

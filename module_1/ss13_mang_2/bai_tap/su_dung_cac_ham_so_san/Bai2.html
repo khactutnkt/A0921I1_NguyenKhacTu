@@ -9,14 +9,13 @@
     var number = parseInt(prompt("nhập vào 1 số"));
     let numArr = [];
     let i=0;
-    alert(number);
     while (number>0){
         numArr[i]=number % 10;
         number = Math.floor(number/10);
         i++;
     }
     numArr.reverse();
-    document.write(numArr + "<br>");
+    document.write(numArr + "<hr>");
     number = "";
     for (var j=0; j<numArr.length; j++){
         if (numArr[j] % 2 === 0 && numArr[j+1] %2 === 0){
