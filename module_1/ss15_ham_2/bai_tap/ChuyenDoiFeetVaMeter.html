@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function feetToMeter(feet) {
+        return 0.305 * feet;
+    }
+    function meterToFeet(meter) {
+        return 3.279 * meter;
+    }
+    document.write("Feet to meter <br>");
+    for (let i=1; i<=10; i++){
+        document.write(i + " feet = "+ feetToMeter(i) + "meter <br>");
+    }
+    document.write("<hr>Meter to feet <br>");
+    for (let i=20; i<=65; i+=5){
+        document.write(i + " meter = " + meterToFeet(i) + " feet <br>");
+    }
+</script>
+</body>
+</html>

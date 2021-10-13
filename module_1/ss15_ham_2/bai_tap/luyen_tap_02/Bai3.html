@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let numInput;
+    do {
+         numInput = prompt("Nhập vào 1 số nguyên");
+    }while (numInput != parseInt(numInput))
+    function tinhGiaiThua(number) {
+        if (number < 0) {
+            alert("Không tôn tại giai thừa của " + number);
+        }else if (number === 0 || number === 1) {
+            return 1;
+        }else {
+            return number * tinhGiaiThua(number-1);
+        }
+    }
+    alert("Kết quả: " + tinhGiaiThua(parseInt(numInput)));
+</script>
+</body>
+</html>

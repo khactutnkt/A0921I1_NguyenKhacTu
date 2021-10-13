@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let numInput;
+    do {
+        numInput = prompt("Nhập vào 1 số bất kì");
+    }while (numInput != parseFloat(numInput))
+    numInput = parseFloat(numInput);
+    alert(checkPositive(numInput));
+
+    function checkPositive(number) {
+        return number>0 && number==parseInt(number);
+    }
+</script>
+</body>
+</html>

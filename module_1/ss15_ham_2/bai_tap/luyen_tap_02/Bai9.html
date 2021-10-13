@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let str = "cho  muon 500k   bay gio co  dc hong? zzZ";
+    let arr = []
+    let char = prompt("Nhập vào 1 ký tự bất kì");
+    for (let i =0; i<str.length; i++ ){
+        arr[i] = str[i];
+    }
+    function checkchar(array, char) {
+        let count = 0;
+        for (let i=0; i<array.length; i++){
+            if (array[i] === char){
+                count++;
+            }
+        }
+        if (count === 0){
+            return -1;
+        }else {
+            return count;
+        }
+    }
+    alert(checkchar(arr, char));
+
+</script>
+</body>
+</html>
