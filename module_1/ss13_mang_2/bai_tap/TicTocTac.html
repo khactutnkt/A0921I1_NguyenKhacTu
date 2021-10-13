@@ -1,74 +1,72 @@
+<!DOCTYPE html>
 <html lang="en">
-
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
 <body>
-<!--<h3>Caro Game Simple</h3>-->
-<!--<p id="carogame" />-->
-<!--<input type="button" value="Player 1" onclick="nguoi1()">-->
-<!--<input type="button" value="Player 2" onclick="nguoi2()">-->
+<p id="display"></p>
+<script>
+    let array = new Array(10);
+    for (let i = 0; i < 10; i++) {
+        array[i] = new Array(10);
+        for (let j = 0; j < 10; j++) {
+            array[i][j] = "";
+        }
+    }
+    display();
 
-<!--<script>-->
-<!--    let b = document.getElementById("carogame");-->
-<!--    let board = [];-->
-<!--    let data = "";-->
-<!--    for (let i = 0; i < 5; i++) {-->
-<!--        board[i] = new Array(".", ".", ".", ".", ".");-->
-<!--    }-->
+    function display() {
+        let tableString = '<table border="1">';
+        for (let i = 0; i < 10; i++) {
+            tableString += '<tr>';
+            for (let j = 0; j < 10; j++) {
+                tableString += '<td onclick="played(' + i + ',' + j + ')" width="25px"; height="25px">' + array[i][j] + '</td>';
+            }
+            tableString += '</tr>';
+        }
+        tableString += '</table>';
+        document.getElementById('display').innerHTML = tableString;
+    }
 
-<!--    for (let i = 0; i < 5; i++) {-->
-<!--        data += "<br/>";-->
-<!--        for (let j = 0; j < 5; j++) {-->
-<!--            data += board[i][j] + "&nbsp;&nbsp;";-->
-<!--        }-->
-<!--    }-->
-<!--    // data += "<br/><br/><input type='button' value='Change Value' onclick='changeValue()'>"-->
-<!--    data += "<br/><br/><input type='button' value='Player 1' onclick='nguoi1()'>" +-->
-<!--        "<input type='button'value='Player 2' onclick='nguoi2()'>"-->
-<!--    b.innerHTML = data;-->
+    let player1 = true;
 
-<!--    function nguoi1() {-->
-<!--        let X = prompt("X: ");-->
-<!--        let Y = prompt("Y: ");-->
-<!--        data = "";-->
-<!--        board[X][Y] = "x";-->
-<!--        for (let i = 0; i < 5; i++) {-->
-<!--            data += "<br/>";-->
-<!--            for (let j = 0; j < 5; j++) {-->
-<!--                data += board[i][j] + "&nbsp;&nbsp;&nbsp;&nbsp;";-->
-<!--            }-->
-<!--        }-->
-<!--        data += "<br/><br/><input type='button' value='Player 1' onclick='nguoi1()'>" +-->
-<!--            "<input type='button'value='Player 2' onclick='nguoi2()'>"-->
-<!--        b.innerHTML = data;-->
-<!--        if (board[x][y-1] === "x" + "&nbsp;&nbsp;&nbsp;&nbsp;" && board[x][y+1] === "x" + "&nbsp;&nbsp;&nbsp;&nbsp;"||-->
-<!--            board[x-1][y] === "x" + "&nbsp;&nbsp;&nbsp;&nbsp;"&& board[x+1][y] === "x" + "&nbsp;&nbsp;&nbsp;&nbsp;"||-->
-<!--            board[x-1][y-1] === "x" + "&nbsp;&nbsp;&nbsp;&nbsp;"&& board[x+1][y+1] === "x"+ "&nbsp;&nbsp;&nbsp;&nbsp;" ||-->
-<!--            board[x+1][y-1] === "x"+ "&nbsp;&nbsp;&nbsp;&nbsp;" && board[x-1][y+1] === "x"+ "&nbsp;&nbsp;&nbsp;&nbsp;"){-->
-<!--            alert("Playrt 1 win");-->
-<!--        }-->
-<!--    }-->
-<!--    function nguoi2() {-->
-<!--        let X = prompt("X: ");-->
-<!--        let Y = prompt("Y: ");-->
-<!--        data = "";-->
-<!--        board[X][Y] = "o";-->
-<!--        for (let i = 0; i < 5; i++) {-->
-<!--            data += "<br/>";-->
-<!--            for (let j = 0; j < 5; j++) {-->
-<!--                data += board[i][j] + "&nbsp;&nbsp;&nbsp;&nbsp;";-->
-<!--            }-->
-<!--        }-->
-<!--        data += "<br/><br/><input type='button' value='Player 1' onclick='nguoi1()'>" +-->
-<!--            "<input type='button'value='Player 2' onclick='nguoi2()'>"-->
-<!--        b.innerHTML = data;-->
-<!--        if (board[x][y-1] === "o" && board[x][y+1] === "o" ||-->
-<!--            board[x-1][y] === "o" && board[x+1][y] === "o" ||-->
-<!--            board[x-1][y-1] === "o" && board[x+1][y+1] === "o" ||-->
-<!--            board[x+1][y-1] === "o" && board[x-1][y+1] === "o"){-->
-<!--            alert("Playrt 2 win");-->
-<!--        }-->
-<!--    }-->
+    function played(i, j) {
+        if (player1 && checkplayed(i, j) === false) {
+            array[i][j] = "X";
+            player1 = false;
+            if (checkwin()) {
+                alert("Người chơi 1 thắng");
+            }
+        } else if (!player1 && !checkplayed(i, j)) {
+            array[i][j] = "O";
+            player1 = true;
+            if (checkwin()) {
+                alert("Người chơi 2 thắng");
+            }
+        }
+        display();
+    }
 
-<!--</script>-->
+    function checkplayed(i, j) {
+        return (array[i][j] === "X" || array[i][j] === "O");
+    }
+
+    function checkwin() {
+        for (let i = 0; i < 10; i++) {
+            for (let j = 0; j < 10; j++) {
+                if (array[i][j] === "X" || array[i][j] === "O") {
+                    if (array[i][j + 1] === array[i][j] && array[i][j + 2] === array[i][j] ||
+                        array[i + 1][j] === array[i][j] && array[i + 2][j] === array[i][j] ||
+                        array[i + 1][j + 1] === array[i][j] && array[i + 2][j + 2] === array[i][j] ||
+                        array[i + 1][j - 1] === array[i][j] && array[i + 2][j - 2] === array[i][j]) {
+                        return true;
+                    }
+                }
+            }
+        }
+    }
+
+</script>
 </body>
-
 </html>
