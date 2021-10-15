@@ -5,13 +5,16 @@
     <title>Title</title>
 </head>
 <body>
-<input type="text" id="nameNewProduct" placeholder="Enter name of the product">
-<input type="button" value="Add" onclick="addNewProduct()">
+<input type="text" id="nameProduct" placeholder="Enter name of the product">
+<input type="button" value="Add" onclick="addNewProduct()"><br>
+<input type="text" id="key" placeholder="Enter keywords">
+<input type="button" value="Search" onclick="searchProduct(productList)"><br>
+<span>Số lượng sản phẩm </span><span id="soLuong"></span>
 <p id="display"></p>
 <script>
     let productList = ['Iphone', 'Samsung', 'Nokia'];
-    display(productList);
-    function display(array) {
+    display();
+    function display() {
         let tableString = '<table border="1" style="background-color: gainsboro">\n' +
             '    <tr style="background-color: cadetblue">\n' +
             '        <th width="30px">Number</th>\n' +
@@ -19,23 +22,24 @@
             '        <th>Edit</th>\n' +
             '        <th>Delete</th>\n' +
             '    </tr>';
-        for (let i=0; i<array.length; i++){
+        for (let i=0; i<productList.length; i++){
             tableString += '    <tr>\n' +
                 '        <td>'+ (i+1) +'</td>\n' +
-                '        <td>'+ array[i] +'</td>\n' +
+                '        <td>'+ productList[i] +'</td>\n' +
                 '        <td> <input type="button" value="Edit" onclick="editProduct('+ i +')"> </td>\n' +
                 '        <td> <input type="button" value="Delete" onclick="deleteProduct('+ i +')"> </td>\n' +
                 '    </tr>';
         }
         tableString +='</table>'
         document.getElementById('display').innerHTML = tableString;
+        document.getElementById('soLuong').innerHTML = productList.length;
     }
 
     function addNewProduct() {
-        let newProduct = document.getElementById('nameNewProduct').value;
-        if (newProduct !== ""){
+        let newProduct = document.getElementById('nameProduct').value;
+        if (checkspace(newProduct)){
             productList.push(newProduct);
-            document.getElementById('nameNewProduct').value = "";
+            document.getElementById('nameProduct').value = "";
         }
         display(productList);
     }
@@ -50,11 +54,39 @@
 
     function editProduct(index) {
         let newName = prompt('Nhập vào tên mới của sản phẩm:');
-        if (newName !== null && newName !== ""){
+        if (newName !== null && checkspace(newName)){
             productList[index] = newName;
         }
         display(productList);
+    }
 
+    function checkspace(str) {
+        if (str !== ""){
+            for (let i=0; i<str.length; i++){
+                if (str[i] !== " "){
+                    return true;
+                }
+            }
+            return false;
+        }else {
+            return false;
+        }
+    }
+
+    function searchProduct(array) {
+        let name = document.getElementById('key').value;
+        if (checkspace(name)){
+            name = name.toUpperCase();
+            let list = [];
+            for (let i=0; i<array.length; i++){
+                let nameList = array[i].toUpperCase();
+                if (nameList.indexOf(name) !== -1){
+                    list.push(array[i]);
+                }
+            }
+            alert('Kết quả tìm kiếm: ' +list);
+        }
+        document.getElementById('key').value = "";
     }
 </script>
 </body>
