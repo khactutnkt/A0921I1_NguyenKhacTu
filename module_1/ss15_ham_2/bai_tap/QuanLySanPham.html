@@ -41,7 +41,7 @@
             productList.push(newProduct);
             document.getElementById('nameProduct').value = "";
         }
-        display(productList);
+        display();
     }
 
     function deleteProduct(index) {
@@ -49,7 +49,7 @@
         if (conf){
             productList.splice(index,1);
         }
-        display(productList);
+        display();
     }
 
     function editProduct(index) {
@@ -57,7 +57,7 @@
         if (newName !== null && checkspace(newName)){
             productList[index] = newName;
         }
-        display(productList);
+        display();
     }
 
     function checkspace(str) {
