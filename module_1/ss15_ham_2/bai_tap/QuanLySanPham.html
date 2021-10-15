@@ -5,55 +5,57 @@
     <title>Title</title>
 </head>
 <body>
-<div>
-    <label>Add new Product<br></label>
-    <input type="text" placeholder="New product" id="new_product">
-    <input type="button" value="Add" onclick="addProduct()">
-</div>
-<div>
-    <input type="text" placeholder="name of product" id="name_product">
-    <input type="button" value="Edit" onclick="editProduct(array[0])">
-</div>
-<label>Display All Product</label>
+<input type="text" id="nameNewProduct" placeholder="Enter name of the product">
+<input type="button" value="Add" onclick="addNewProduct()">
 <p id="display"></p>
 <script>
-    let array = [];
-    array[0] = 0;
-    function addProduct() {
-        let str = document.getElementById('new_product').value;
-        array.push(str);
-        display();
-    }
-    function display() {
-        let tableString = '<table border="1">';
-        tableString += '<th>Num</th>';
-        tableString += '<th>Product Name</th>';
-        for (let i=1; i<array.length; i++){
-            tableString += '<tr>';
-            tableString += '<td width="40px" height="30px">' + i + '</td>';
-            tableString += '<td width="200px" height="30px" onclick="edit('+i+')">' + array[i] + '</td>';
-            tableString += '<td width="60px" height="30px">' + '<input type="button" value="Detele" onclick="del('+i+')" >' + '</td>';
+    let productList = ['Iphone', 'Samsung', 'Nokia'];
+    display(productList);
+    function display(array) {
+        let tableString = '<table border="1" style="background-color: gainsboro">\n' +
+            '    <tr style="background-color: cadetblue">\n' +
+            '        <th width="30px">Number</th>\n' +
+            '        <th width="150px">Name</th>\n' +
+            '        <th>Edit</th>\n' +
+            '        <th>Delete</th>\n' +
+            '    </tr>';
+        for (let i=0; i<array.length; i++){
+            tableString += '    <tr>\n' +
+                '        <td>'+ (i+1) +'</td>\n' +
+                '        <td>'+ array[i] +'</td>\n' +
+                '        <td> <input type="button" value="Edit" onclick="editProduct('+ i +')"> </td>\n' +
+                '        <td> <input type="button" value="Delete" onclick="deleteProduct('+ i +')"> </td>\n' +
+                '    </tr>';
         }
-        tableString += '</tr>';
-        tableString += '</table>';
+        tableString +='</table>'
         document.getElementById('display').innerHTML = tableString;
     }
 
-    function del(i) {
-        array.splice(i,1);
-        display();
+    function addNewProduct() {
+        let newProduct = document.getElementById('nameNewProduct').value;
+        if (newProduct !== ""){
+            productList.push(newProduct);
+            document.getElementById('nameNewProduct').value = "";
+        }
+        display(productList);
     }
 
-    function edit(i) {
-        document.getElementById('name_product').value = array[i];
-        array[0] = i;
+    function deleteProduct(index) {
+        let conf = confirm("Bạn muốn xóa sản phẩm có tên: " + productList[index]);
+        if (conf){
+            productList.splice(index,1);
+        }
+        display(productList);
     }
 
     function editProduct(index) {
-        array[index] = document.getElementById('name_product').value;
-        display()
-    }
+        let newName = prompt('Nhập vào tên mới của sản phẩm:');
+        if (newName !== null && newName !== ""){
+            productList[index] = newName;
+        }
+        display(productList);
 
+    }
 </script>
 </body>
 </html>
