@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="myCanvas" width="1368px" height="768px" style="border:1px solid #d3d3d3;"></canvas>
+<script>
+    class Rectangle{
+        constructor(width, height) {
+            this.width = width;
+            this.height = height;
+        }
+        getArea(){
+            return this.width * this.height;
+        }
+        getPerimeter(){
+            return 2 * (this.width + this.height);
+        }
+        setRectangle(width, height){
+            this.width = width;
+            this.height = height;
+        }
+        createRectangle(){
+            var ctx = document.getElementById('myCanvas').getContext("2d");
+            var x = Math.random() * window.innerWidth;
+            var y = Math.random() * window.innerHeight;
+            ctx.fillRect(x, y, this.width, this.height);
+        }
+    }
+    let rectangle = new Rectangle(500, 300);
+    rectangle.setRectangle(200, 50)
+    document.write("diện tích HCN: " +rectangle.getArea() + "<br>");
+    document.write("chu vi HCN: " +rectangle.getPerimeter());
+    rectangle.createRectangle();
+
+
+</script>
+</body>
+</html>

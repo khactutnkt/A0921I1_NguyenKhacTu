@@ -5,12 +5,20 @@
     <title>Title</title>
 </head>
 <body>
-<input type="text" id="nameProduct" placeholder="Enter name of the product">
-<input type="button" value="Add" onclick="addNewProduct()"><br>
-<input type="text" id="key" placeholder="Enter keywords">
-<input type="button" value="Search" onclick="searchProduct(productList)"><br>
-<span>Số lượng sản phẩm </span><span id="soLuong"></span>
-<p id="display"></p>
+<div>
+   <div class="dong1">
+       <input class="o1" type="text" id="nameProduct" placeholder="Enter name of the product">
+       <input type="button" class="buttonadd" value="Add" onclick="addNewProduct()"><br>
+       <input type="text" class="o1" id="key" placeholder="Enter keywords">
+       <input type="button" class="buttonadd" value="Search" onclick="searchProduct(productList)"><br>
+   </div>
+   <div class="dong2">
+
+   </div>
+    <span>Số lượng sản phẩm </span><span id="soLuong"></span>
+    <p id="display"></p>
+</div>
+
 <script>
     let productList = ['Iphone', 'Samsung', 'Nokia'];
     display();

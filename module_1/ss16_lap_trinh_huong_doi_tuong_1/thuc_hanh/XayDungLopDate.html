@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class MyDate{
+        constructor(ngay, thang, nam) {
+            this.day = ngay;
+            this.month = thang;
+            this.year = nam;
+        }
+        getDay(){
+            return this.day;
+        }
+        getMonth(){
+            return this.month;
+        }
+        getYear(){
+            return this.year;
+        }
+        setDay(day){
+            this.day = day;
+        }
+        setMonth(month){
+            this.month = month;
+        }
+        setYear(year){
+            this.year = year;
+        }
+        setDate(day, month, year){
+            this.day = day;
+            this.month = month;
+            this.year = year;
+        }
+        toString(){
+            return this.day+'/'+this.month+'/'+this.year;
+        }
+    }
+    let date1 = new MyDate(21,1,1998);
+    // alert(date1);
+    let ngay = date1.getDay();
+    let thang = date1.getMonth();
+    let nam = date1.getYear();
+    alert(ngay+'/'+thang+'/'+nam);
+
+    date1.setDay(20);
+    date1.setMonth(10);
+    date1.setYear(2021)
+    // alert(date1);
+    alert(date1.toString());
+    date1.setDate(10, 10, 2022);
+    alert(date1.toString());
+</script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Mobile{
+        constructor(name, battery, composeArea, inboxArea, sentArea) {
+            this.name = name;
+            this.battery = battery;
+            this.composeArea = composeArea;
+            this.inboxArea = inboxArea;
+            this.sentArea = sentArea;
+        }
+
+        chargeBattery(){
+            this.battery++;
+            alert(this.battery);
+        }
+        compose(){
+            if (this.checkPhoneOnOff()){
+                this.composeArea = prompt(this.name +" Soạn tin nhắn: ");
+                this.battery--;
+            }
+        }
+        takeAMessage(message){
+            if (this.checkPhoneOnOff()){
+                this.inboxArea = message;
+                alert(this.name+" Đã nhận 1 tin nhắn");
+                this.battery--;
+            }
+        }
+        sendAMessage(){
+            if (this.checkPhoneOnOff()){
+                this.sentArea = this.composeArea;
+                this.composeArea = "";
+                alert(this.name+" Đã gửi tin nhắn");
+                this.battery--;
+            }
+        }
+        readMessage(){
+            if (this.checkPhoneOnOff()){
+                alert(this.name + " Tin nhắn đến: " + this.inboxArea);
+                this.battery--;
+            }
+        }
+        readMessageSent(){
+            if (this.checkPhoneOnOff()){
+                alert(this.name + " Tin đã gửi: " +this.sentArea);
+                this.battery--;
+            }
+        }
+        checkPhoneOnOff(){
+            // if (this.battery > 0){
+            //     alert(this.name + " Điện thoại đang bật");
+            //     return true;
+            // }else {
+            //     alert(this.name + " Điện thoại đang tắt");
+            //     return false;
+            // // }
+            // if (this.turnOff()){
+            //     return false;
+            // }else if (this.turnOn()){
+            //     return true;
+            // }
+            return this.battery > 0;
+        }
+        turnOn(){
+            if (this.battery > 0){
+                alert(this.name +" Điện thoại đã bật");
+                // return true;
+            }
+        }
+        turnOff(){
+            alert(this.name+" Điện thoại đã tắt");
+            // return true;
+        }
+    }
+    let nokia = new Mobile("Nokia", 60, "", "", "");
+    let iphone = new Mobile("Iphone", 50, "", "", "");
+
+    nokia.compose();
+    nokia.sendAMessage();
+    nokia.readMessageSent();
+    iphone.takeAMessage(nokia.sentArea);
+    iphone.readMessage();
+    // nokia.checkPhoneOnOff();
+
+
+</script>
+</body>
+</html>
