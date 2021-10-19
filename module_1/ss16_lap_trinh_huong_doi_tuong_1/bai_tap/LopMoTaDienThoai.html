@@ -6,88 +6,73 @@
 </head>
 <body>
 <script>
-    class Mobile{
-        constructor(name, battery, composeArea, inboxArea, sentArea) {
-            this.name = name;
-            this.battery = battery;
-            this.composeArea = composeArea;
-            this.inboxArea = inboxArea;
-            this.sentArea = sentArea;
+    class DienThoai {
+        constructor() {
+            this.pin = 100;
+            this.vungNhoSoanThao = "";
+            this.vungNhoTinDen = [];
+            this.vungNhoTinGui = [];
+            this.trangThai = true;// mặc đinh khi khởi tạo là mở.
+        }
+        getTrangThai() {
+            if (this.trangThai) {
+                console.log("điện thoại đang bật");
+            } else {
+                console.log("điện thoại đang tắt")
+            }
         }
 
-        chargeBattery(){
-            this.battery++;
-            alert(this.battery);
+        batTat() {
+            this.trangThai = !this.trangThai;
         }
-        compose(){
-            if (this.checkPhoneOnOff()){
-                this.composeArea = prompt(this.name +" Soạn tin nhắn: ");
-                this.battery--;
+
+        soanTin(text) {
+            if (this.trangThai){
+                this.vungNhoSoanThao = text;
+                this.pin--;
             }
         }
-        takeAMessage(message){
-            if (this.checkPhoneOnOff()){
-                this.inboxArea = message;
-                alert(this.name+" Đã nhận 1 tin nhắn");
-                this.battery--;
+
+        sacPin() {
+            this.pin = 100;
+        }
+
+        nhanTinNhan(message) {
+            if (this.trangThai){
+                this.vungNhoTinDen.push(message);
+                this.pin--;
             }
         }
-        sendAMessage(){
-            if (this.checkPhoneOnOff()){
-                this.sentArea = this.composeArea;
-                this.composeArea = "";
-                alert(this.name+" Đã gửi tin nhắn");
-                this.battery--;
+
+        guiTinNhan(dienThoai, message) {
+            if (this.trangThai){
+                this.soanTin(message);
+                this.vungNhoTinGui.push(this.vungNhoSoanThao);
+                dienThoai.nhanTinNhan(message);
+                this.vungNhoSoanThao = "";
+                this.pin--;
             }
         }
-        readMessage(){
-            if (this.checkPhoneOnOff()){
-                alert(this.name + " Tin nhắn đến: " + this.inboxArea);
-                this.battery--;
+
+        hienThiTinDen() {
+            if (this.trangThai){
+                for (let i = 0; i < this.vungNhoTinDen.length; i++) {
+                    console.log((1 + i) + "." + this.vungNhoTinDen[i])
+                }
+                this.pin--;
             }
-        }
-        readMessageSent(){
-            if (this.checkPhoneOnOff()){
-                alert(this.name + " Tin đã gửi: " +this.sentArea);
-                this.battery--;
-            }
-        }
-        checkPhoneOnOff(){
-            // if (this.battery > 0){
-            //     alert(this.name + " Điện thoại đang bật");
-            //     return true;
-            // }else {
-            //     alert(this.name + " Điện thoại đang tắt");
-            //     return false;
-            // // }
-            // if (this.turnOff()){
-            //     return false;
-            // }else if (this.turnOn()){
-            //     return true;
-            // }
-            return this.battery > 0;
-        }
-        turnOn(){
-            if (this.battery > 0){
-                alert(this.name +" Điện thoại đã bật");
-                // return true;
-            }
-        }
-        turnOff(){
-            alert(this.name+" Điện thoại đã tắt");
-            // return true;
         }
     }
-    let nokia = new Mobile("Nokia", 60, "", "", "");
-    let iphone = new Mobile("Iphone", 50, "", "", "");
-
-    nokia.compose();
-    nokia.sendAMessage();
-    nokia.readMessageSent();
-    iphone.takeAMessage(nokia.sentArea);
-    iphone.readMessage();
-    // nokia.checkPhoneOnOff();
-
+    let nokia = new DienThoai();
+    let iphone = new DienThoai();
+    nokia.guiTinNhan(iphone,"Xin chao iphone");
+    iphone.guiTinNhan(nokia,"Chào bạn nokia. Bạn đang ở đâu đó");
+    nokia.guiTinNhan(iphone,"Mình đang ở Vn")
+    iphone.guiTinNhan(nokia, "đi ăn nhé");
+    iphone.guiTinNhan(nokia, "quán cũ");
+    nokia.guiTinNhan(iphone, "ok br");
+    iphone.hienThiTinDen();
+    nokia.hienThiTinDen();
 
 </script>
 </body>
