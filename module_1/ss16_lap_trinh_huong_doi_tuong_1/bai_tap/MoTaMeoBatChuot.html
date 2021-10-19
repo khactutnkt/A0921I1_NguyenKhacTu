@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Animal{
+        constructor(name, weight, speed, status) {
+            this.name = name;
+            this.weight = weight;
+            this.speed = speed;
+            this.status = status;
+        }
+        sound(text){
+            if (this.status){
+                console.log(this.name + " " +text);
+            }
+        }
+    }
+    class Rat extends Animal{
+        constructor(name, weight, speed, status){
+            super(name, weight, speed, status);
+        }
+        getStatus(){
+            return this.status;
+        }
+    }
+    class Cat extends Animal{
+        constructor(name, weight, speed, status){
+            super(name, weight, speed, status)
+        }
+        getWeight(){
+            return this.weight;
+        }
+        catchRat(rat){
+            return this.speed > rat.speed;
+        }
+        eatRat(rat){
+            if (this.catchRat(rat) && rat.getStatus()){
+                rat.status = false;
+                this.weight += rat.weight;
+                rat.weight = 0;
+                console.log(this.name + " đã ăn "+rat.name);
+            }
+        }
+    }
+    
+    let chuot1 = new Rat('Chuột 1', 20, 100, true);
+    let chuot2 = new Rat('Chuột 2', 20, 100, true);
+    let chuot3 = new Rat('Chuột 3', 20, 100, true);
+    let meo = new Cat('Mèo', 100, 200, true);
+    chuot1.sound("chít chít");
+    chuot2.sound("chít chít");
+    chuot3.sound("chít chít");
+    meo.sound("Mew mew");
+    meo.catchRat(chuot1);
+    meo.eatRat(chuot1);
+    meo.eatRat(chuot2);
+    console.log(meo.getWeight());
+    meo.eatRat(chuot3);
+    console.log(meo.getWeight());
+    meo.eatRat(chuot1);
+    console.log(meo.getWeight());
+</script>
+</body>
+</html>
