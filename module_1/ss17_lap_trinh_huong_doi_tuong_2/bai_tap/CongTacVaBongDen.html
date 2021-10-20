@@ -20,8 +20,9 @@
         }
     }
     class SwitchButton{
-        constructor(status) {
+        constructor(status, lamp) {
             this.status = status;
+            this.lamp =lamp;
         }
         connectToLamp(lamp){
             this.lamp = lamp;
@@ -36,13 +37,12 @@
         }
     }
     let bedroomLamp = new ElectricLamp();
-    let switchLamp = new SwitchButton(false);
+    let switchLamp = new SwitchButton();
     switchLamp.connectToLamp(bedroomLamp);
     switchLamp.switchOn();
     switchLamp.switchOff();
     switchLamp.switchOn();
     switchLamp.switchOff();
-
 </script>
 </body>
 </html>
