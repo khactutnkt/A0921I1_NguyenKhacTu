@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function countApplesAndOranges(s, t, a, b, apples, oranges) {
+        // Write your code here
+        var result = [0, 0];
+        for (let i=0; i<apples.length; i++){
+            if (a+apples[i]>=s && a+apples[i]<=t){
+                result[0]++;
+            }
+        }
+        for (let i=0; i<oranges.length; i++){
+            if (b + oranges[i] >= s && b + oranges[i] <= t){
+                result[1]++;
+            }
+        }
+        document.write(result);
+    }
+    // let s=7;let t=11;let a=5;let b=15;
+    let apples = [-2, 2, 1];
+    let oranges = [5, -6];
+    countApplesAndOranges(7, 11, 5, 15, apples, oranges);
+</script>
+</body>
+</html>

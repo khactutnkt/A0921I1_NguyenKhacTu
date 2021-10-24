@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h3>Module 1: Bootcamp Preparation</h3>
+    <h2>CASE STUDY</h2>
+    <hr>
+    <div>
+        <h3>I.	Yêu cầu 1 (Vẽ hình *)</h3>
+        <p><input type="button" value="Bài 1" onclick="bai1_1()"> Vẽ hình chữ nhật rỗng</p>
+        <p><input type="button" value="Bài 2" onclick="bai1_2()"> Vẽ hình tam giác vuông rỗng</p>
+        <p><input type="button" value="Bài 3" onclick="bai1_3()"> Vẽ hình tam giác cân</p>
+        <p><input type="button" value="Bài 4" onclick="bai1_4()"> Vẽ hình tam giác cân rỗng</p>
+    </div>
+    <div>
+        <h3>II.	Yêu cầu 2 ( If và switch case)</h3>
+        <p><input type="button" value="Bài 1" onclick="bai2_1()"> Tính thuế thu nhập cá nhân, lương ròng</p>
+        <p><input type="button" value="Bài 2" onclick="bai2_2()"> Kiểm tra ký tự có phải nguyên âm</p>
+    </div>
+    <div>
+        <h3>II.	Yêu cầu 3 (Mảng và Loop)</h3>
+        <p><input type="button" value="Bài 1" onclick="bai3_1()"> Xây dựng mảng b là prefix sums của mảng a </p>
+        <p><input type="button" value="Bài 2" onclick="bai3_2()"> Tìm ra một mảng chứa phần tử xuất hiện trong mảng B nhưng lại không xuất hiện trong mảng A</p>
+        <p><input type="button" value="Bài 3" onclick="bai3_3()"> Tìm chỉ số của phân số lớn nhất</p>
+        <p><input type="button" value="Bài 4" onclick="bai3_4()"> Nhập một số từ bàn phím và in ra màn hình bằng chữ</p>
+        <p><input type="button" value="Bài 5" onclick="bai3_5()"> Gọi thức uống từ menu</p>
+    </div>
+    <div>
+        <h3>IV.	Yêu cầu 4 (String)</h3>
+        <p><input type="button" value="Bài 1" onclick="bai4_1()"> Chuẩn hóa xâu ký tự, tìm tù dài nhất trong đó</p>
+        <p><input type="button" value="Bài 2" onclick="bai4_2()"> Đếm số lượng kí tự khác nhau trong xâu ký tự</p>
+        <p><input type="button" value="Bài 3" onclick="bai4_3()"> Cho hai xâu kí tự, tìm số lượng kí tự chung giữa chúng</p>
+    </div>
+    <div>
+        <h3>V.	Yêu cầu 5 (Mảng 2 chiều)</h3>
+        <p><input type="button" value="Bài 1" onclick="bai5_1()"> Tính tổng các số chẵn trong mảng m*n</p>
+        <p><input type="button" value="Bài 2" onclick="bai5_2()"> Liệt kê và đếm cac số nguyên tố có trong mảng</p>
+        <p><input type="button" value="Bài 3" onclick="bai5_3()"> Tìm max, min trong mảng 2 chiều</p>
+    </div>
+    <div>
+        <h3>VI.	Yêu cầu 6 (OOP)</h3>
+    </div>
+<script>
+    function bai1_1() {
+        let x = parseInt(prompt("chiều rộng:"));
+        let y = parseInt(prompt("chiều dài:"));
+        for (let i=0; i<x; i++){
+            for (let j=0; j<y; j++){
+                if (i===0 || i===x-1 || j===0 || j===y-1){
+                    document.write("*");
+                }else {
+                    document.write("&nbsp&nbsp");
+                }
+            }
+            document.write("<br>");
+        }
+    }
+    function bai1_2() {
+        let x = parseInt(prompt("Nhập vào một số tự nhiên"))
+        for (let i=0; i<x; i++){
+            for (let j=0; j<x; j++){
+                if (j===0 || i===x-1 || i===j){
+                    document.write('*');
+                }else {
+                    document.write('&nbsp&nbsp')
+                }
+            }
+            document.write("<br>");
+        }
+    }
+    function bai1_3() {
+        let n;
+        do {
+            n = parseInt(prompt("mời nhập kích thước "));
+        }while (!(n >0 && n<100))
+
+        // for(let i = 1 ; i <= n ; i++) {
+        //     for (let j = 1; j < 2 * n; j++) {
+        //         if (Math.abs(n - j) <= (i - 1)) {
+        //             document.write("*");
+        //         } else {
+        //             document.write("&nbsp&nbsp");
+        //         }
+        //     }
+        //     document.write("</br>")
+        // }
+        for (let i=1; i<=n; i++){
+            for (let j=0; j<n-i; j++){
+                document.write('&nbsp&nbsp');
+            }
+            for (let j=1; j<2*i; j++){
+                document.write('*');
+            }
+            document.write('<br>');
+        }
+    }
+    
+    function bai1_4() {
+        let n;
+        do {
+            n = parseInt(prompt("mời nhập kích thước "));
+        }while (!(n >0 && n<100))
+        for (let i=1; i<=n; i++){
+            for (let j=0; j<n-i; j++){
+                document.write('&nbsp&nbsp');
+            }
+            for (let j=1; j<=n; j++){
+                if (j===1 || i===n || i===j){
+                    document.write('*');
+                }else {
+                    document.write('&nbsp&nbsp')
+                }
+            }
+            document.write("<br>");
+        }
+    }
+
+    function bai2_1() {
+        let luongRong, thueThuNhap
+        let luong = parseInt(prompt('Nhập vào lương nhân viên:'));
+        if (luong>=15000000){
+            thueThuNhap = luong*0.2;
+            luongRong = luong - thueThuNhap;
+        }else if(luong>=7000000){
+            thueThuNhap = luong*0.1;
+            luongRong = luong - thueThuNhap;
+        }else {
+            thueThuNhap = luong*0.05;
+            luongRong = luong - thueThuNhap;
+        }
+        document.write("Lương nhân viên: "+luong+"<br>");
+        document.write("Thuế thu nhập cá nhân: "+thueThuNhap+"<br>");
+        document.write("Lương ròng: "+luongRong);
+    }
+
+    function bai2_2() {
+        let kyTu = prompt("Nhập vào một chữ cái Tiếng Anh");
+        switch (kyTu) {
+            case 'u':
+            case 'e':
+            case 'o':
+            case 'a':
+            case 'i':
+            case 'U':
+            case 'E':
+            case 'O':
+            case 'A':
+            case 'I':
+                alert(kyTu + " là nguyên âm");
+                break;
+            default:
+                alert((kyTu + " là phụ âm"));
+        }
+    }
+
+    function bai3_1() {
+        let arrA = [1, 2, 3, 3 , 2, 1,-1];
+        let arrB = [];
+        let sum = 0;
+        for (let i=0; i<arrA.length; i++){
+            sum+=arrA[i];
+            arrB.push(sum);
+        }
+        document.write("Mảng A: "+ arrA);
+        document.write("<hr>");
+        document.write("Mảng B:"+ arrB);
+    }
+
+    function bai3_2() {
+        let arrA = [7,2,5,3,5,3];
+        let arrB = [7,2,5,4,6,4,3,5,3];
+        let result=[];
+        for (let i=0; i<arrB.length; i++){
+            if (arrA.indexOf(arrB[i])===-1 && result.indexOf(arrB[i])===-1){
+                result.push(arrB[i]);
+            }
+        }
+        document.write(arrA +"<hr>");
+        document.write(arrB +"<hr>");
+        document.write(result);
+    }
+
+    function bai3_3() {
+        let numerators = [5, 2, 5];
+        let denominators = [6, 3, 4];
+        let max=numerators[0]/denominators[0];
+        let result=0;
+        for (let i=1; i<numerators.length; i++){
+            if (numerators[i]/denominators[i]>max){
+                max=numerators[i]/denominators[i];
+                result=i;
+            }
+        }
+        alert(result);
+    }
+
+    function bai3_4() {
+        let number = prompt("Nhập vào 1 số tự nhiên");
+        let result="";
+        for (let i=0; i<number.length; i++){
+            switch (number[i]) {
+                case '0':
+                    result+="không ";
+                    break;
+                case '1':
+                    result+="một ";
+                    break;
+                case '2':
+                    result+="hai ";
+                    break;
+                case '3':
+                    result+="ba ";
+                    break;
+                case '4':
+                    result+="bốn ";
+                    break;
+                case '5':
+                    result+="năm ";
+                    break;
+                case '6':
+                    result+="sáu ";
+                    break;
+                case '7':
+                    result+="bảy ";
+                    break;
+                case '8':
+                    result+="tám ";
+                    break;
+                case '9':
+                    result+="chín ";
+                    break;
+            }
+        }
+        alert(result);
+    }
+
+    function bai3_5() {
+        let menu = ['1.Cafe', '2.Cam vắt', '3.Nước ép cà rốt', '4.Nước ép cà chua', '5.Nước lọc', '6.Nước dừa'];
+        let giaTien = [10000, 12000, 15000, 15000, 17000, 5000, 10000];
+        for (let i=0; i<menu.length; i++){
+            document.write(menu[i]+"<br>");
+        }
+        let num, soLuong, giaTien1Mon ;
+        let tongTienPhaiTra = 0;
+        do {
+            num = parseInt(prompt("Nhập 1 đến 6 để chọn thức uống, nhập 7 để thoát"));
+            if (num>=1 && num<=6){
+                alert(menu[num-1]+" có giá "+giaTien[num-1]);
+                soLuong = parseInt(prompt('Chọn số lượng'));
+                giaTien1Mon = giaTien[num-1] * soLuong;
+                tongTienPhaiTra += giaTien1Mon;
+            }
+        }while (num!==7)
+        alert("Tổng thanh toán: "+tongTienPhaiTra);
+    }
+
+    function bai4_1() {
+        let result = "";
+        let string = prompt("Nhập vào 1 chuỗi ký tự");
+        let array = string.trim().toLowerCase().split(' ');
+        for (let i=0; i<array.length; i++){
+            if (array[i]===""){
+                array.splice(i,1);
+                i--;
+            }
+        }
+        alert(array)
+        for (let i=0; i<array.length; i++){
+            array[i] = array[i][0].toUpperCase() + array[i].slice(1);
+        }
+        document.write(array.join(' '));
+        // for (let i=0; i<array.length; i++){
+        //     if (array[0]===' '){
+        //         array.splice(0,1);
+        //         i--;
+        //     }else if (array[i]===' ' && array[i+1]===' '){
+        //         array.splice(i,1);
+        //         i--;
+        //     }else if (array[array.length-1]===' '){
+        //         array.splice(array.length-1,1);
+        //     }
+        // }
+        // array[0]=array[0].toUpperCase();
+        // for (let i=0; i<array.length; i++){
+        //     if (array[i]===' '){
+        //         array[i+1]=array[i+1].toUpperCase();
+        //     }
+        //     result+=array[i];
+        // }
+        // document.write(result);
+        // let max = result.indexOf(' ');
+        // let index = max;
+        // let vt=index;
+        // result+=" ";
+        // for (let i= index; i<result.length; i++){
+        //     if (result[i]===' '){
+        //         if (i-index-1>=max){
+        //             max = i-index-1;
+        //             vt = i;
+        //         }
+        //         index = i;
+        //     }
+        // }
+        let max=array[0].length;
+        let index=0;
+        for (let i=1; i<array.length; i++){
+            if (array[i].length>max){
+                max=array[i].length;
+                index=i;
+            }
+        }
+        // document.write("<br>Từ dài nhất: "+result.slice(vt-max-1,vt));
+        document.write("<br>Từ dài nhất: "+array[index]);
+    }
+
+    function bai4_2() {
+        let string = prompt("Nhập vào 1 xấu ký tự");
+        let result = "";
+        for (let i=0;i<string.length; i++){
+            if (string.indexOf(string[i])===i){
+                result+=string[i];
+            }
+        }
+        alert("xâu có "+result.length+" ký tự khác nhau");
+    }
+
+    function bai4_3() {
+        let stringA = prompt("Nhập vào xâu thứ nhất:");
+        let stringB = prompt("Nhập vào xâu thứ hai:");
+        let result="";
+        for (let i=0; i<stringA.length; i++){
+            if (stringB.indexOf(stringA[i])!==-1){
+                result+=stringA[i];
+                stringB = stringB.slice(0,stringB.indexOf(stringA[i]))+stringB.slice(stringB.indexOf(stringA[i])+1,stringB.length);
+            }
+        }
+        alert("2 xâu có số ký tự chung là "+result.length);
+        alert(result)
+    }
+
+    function khoiTaoMang2Chieu() {
+        let m = parseInt(prompt("Nhập m"));
+        let n = parseInt(prompt("Nhập n"));
+        arr = new Array(m);
+        document.write("Mảng 2 chiều "+m+"*"+n+"<br>");
+        for (let i=0; i<m; i++){
+            arr[i]=new Array(n);
+            for (let j=0; j<n; j++){
+                arr[i][j] = parseInt(prompt("arr["+i+"],["+j+"]"));
+                document.writeln(arr[i][j]);
+            }
+            document.write("<br>");
+        }
+        return arr;
+    }
+
+    function isPrime(number) {
+        if (number<2){
+            return false;
+        }else{
+            for (let i=2; i<=number/2; i++){
+                if (number % i === 0){
+                    return false;
+                }
+            }
+            return true;
+        }
+    }
+
+    function bai5_1() {
+       let arr = khoiTaoMang2Chieu();
+        let sum=0;
+        for (let i=0; i<arr.length; i++){
+            for (let j=0; j<arr[i].length; j++){
+                if (arr[i][j] %2 === 0){
+                    sum+=arr[i][j];
+                }
+            }
+        }
+        document.write("<br>Tổng các số chẵn trong mảng là: "+sum);
+    }
+
+    function bai5_2() {
+        let arr = khoiTaoMang2Chieu();
+        let count = 0;
+        let result="";
+        for (let i=0; i<arr.length; i++){
+            for (let j=0; j<arr[i].length; j++){
+                if (isPrime(arr[i][j])){
+                    count++;
+                    result+=arr[i][j]+" ";
+                }
+            }
+        }
+        document.write("<br>Số lượng số nguyên tố trong mảng: "+count);
+        document.write("<br>Các số nguyên tố: "+result);
+    }
+
+    function bai5_3() {
+        let arr = khoiTaoMang2Chieu();
+        let max=arr[0][0];
+        let min=arr[0][0];
+        for (let i=0; i<arr.length; i++){
+            for (let j=0; j<arr[i].length; j++){
+                if (arr[i][j]>max){
+                    max=arr[i][j];
+                }
+                if (arr[i][j]<min){
+                    min=arr[i][j];
+                }
+            }
+        }
+        document.write("<br>max = "+max);
+        document.write("<br>min = "+min);
+    }
+
+    function ínoNguyenTo() {
+        let count=0, n=2;
+        while (count<100){
+            if (isPrime(n)){
+                count++;
+                document.write('<br>'+n);
+            }
+            n++;
+        }
+    }
+
+
+</script>
+</body>
+</html>

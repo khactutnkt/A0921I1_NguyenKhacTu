@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function migratoryBirds(arr) {
+        // Write your code here
+        // let result = arr[0];
+        // let maxCount = 0;
+        // for(let i=0; i<arr.length; i++){
+        //     let count=0;
+        //     for(let j=i+1; j<arr.length; j++){
+        //         if(arr[i]===arr[j]){
+        //             count++;
+        //         }
+        //     }
+        //     if(count>maxCount){
+        //         maxCount=count;
+        //         result=arr[i];
+        //     }
+        // }
+        let result = arr[arr.length-1];
+        let maxCount = 0;
+        while(maxCount<arr.length){
+            let count = 0;
+            let temp = arr[arr.length-1];
+            while(arr.indexOf(temp) !== -1){
+                count++;
+                arr.splice(arr.indexOf(temp),1);
+            }
+            if(count>=maxCount && temp<result){
+                maxCount=count;
+                result=temp;
+            }
+            // console.log(maxCount+".........."+result);
+        }
+        return maxCount;
+    }
+    let a = [1,3,2,3,3,4,5,2,4,2,5];
+    migratoryBirds(a);
+
+</script>
+</body>
+</html>
