@@ -385,17 +385,15 @@
 
     function bai5_2() {
         let arr = khoiTaoMang2Chieu();
-        let count = 0;
         let result="";
         for (let i=0; i<arr.length; i++){
             for (let j=0; j<arr[i].length; j++){
                 if (isPrime(arr[i][j])){
-                    count++;
                     result+=arr[i][j]+" ";
                 }
             }
         }
-        document.write("<br>Số lượng số nguyên tố trong mảng: "+count);
+        document.write("<br>Số lượng số nguyên tố trong mảng: "+result.length);
         document.write("<br>Các số nguyên tố: "+result);
     }
 
@@ -417,9 +415,9 @@
         document.write("<br>min = "+min);
     }
 
-    function ínoNguyenTo() {
+    function insoNguyenTo() {
         let count=0, n=2;
-        while (count<100){
+        while (count<200){
             if (isPrime(n)){
                 count++;
                 document.write('<br>'+n);
@@ -427,7 +425,7 @@
             n++;
         }
     }
-
+    insoNguyenTo();
 
 </script>
 </body>
