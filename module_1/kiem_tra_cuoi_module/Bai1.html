@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function khoiTaoMangSo() {
+        let n;
+        do {
+            n = parseFloat(prompt("nhập vào độ dài mảng, <=50"));
+        }while (isNaN(n) || n>50 || n<=0 || n!==parseInt(n));
+        let array = new Array(n);
+        for (let i=0; i<n; i++){
+            do {
+                array[i] = parseFloat(prompt('Nhập vào phần tử thứ '+i));
+            }while (isNaN(array[i]) || array[i]!==parseInt(array[i]));
+        }
+        return array;
+    }
+    function tinhTrungBinhCong(array) {
+        let sum = 0;
+        let count = 0;
+        for (let i=0; i<array.length; i+=2){
+            if (array[i] % 2 !== 0){
+                sum += array[i];
+                count++;
+            }
+        }
+        if (count!==0) {
+            return sum / count;
+        }else return 0;
+    }
+    let arr = khoiTaoMangSo();
+    document.write("mảng số vừa nhập: "+arr+"<br>");
+    if (tinhTrungBinhCong(arr)===0){
+        document.write("Không có số lẻ nào ở vị trí chẵn trong mảng.");
+    }else {
+        document.write("Trung bình cộng các số lẻ ở vị trí chẵn trong mảng: "+tinhTrungBinhCong(arr));
+    }
+</script>
+</body>
+</html>

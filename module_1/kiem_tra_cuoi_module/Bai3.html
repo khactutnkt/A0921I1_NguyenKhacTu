@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="button" value="Thêm sách mới" onclick="addSachMoi()">
+<p id="hienthi"></p>
+<script>
+    class Sach{
+        constructor(maSoSach, tenSach, namXuatBan, soQuyen, tinhTrangSach) {
+            this.maSoSach = maSoSach;
+            this.tenSach = tenSach;
+            this.namXuatBan = namXuatBan;
+            this.soQuyen = soQuyen;
+            this.tinhTrangSach = tinhTrangSach;
+        }
+        getMaSoSach(){
+            return this.maSoSach;
+        }
+        getTenSach(){
+            return this.tenSach;
+        }
+        getNamXuatBan(){
+            return this.namXuatBan;
+        }
+        getSoQuyen(){
+            return this.soQuyen;
+        }
+        getTinhTrangSach(){
+            return this.tinhTrangSach;
+        }
+    }
+    function checkSpace(str) {
+        if (str===""){
+            return true;
+        }else {
+            for (let i=0; i<str.length; i++){
+                if (str[i]!==" "){
+                    return false;
+                }
+            }
+            return true;
+        }
+    }
+    function addSachMoi() {
+        let maSoSach, tenSach, namXuatBan, soQuyen, tinhTrangSach;
+        do {
+            maSoSach = prompt("Nhập vào mã số sách");
+        }while (maSoSach.length!==5 || parseFloat(maSoSach)!=maSoSach || parseFloat(maSoSach)!==parseInt(maSoSach) ||
+                parseInt(maSoSach[0])<1 ||  parseInt(maSoSach[0])>5 || maSoSach[4]==='.');
+        do {
+            tenSach = prompt("Nhập vào tên sách");
+        }while (checkSpace(tenSach));
+
+        do {
+            namXuatBan = prompt("Nhập vào năm xuất bản: ");
+        }while (parseInt(namXuatBan)>9999 || parseFloat(namXuatBan)!=namXuatBan || parseFloat(namXuatBan)!==parseInt(namXuatBan) || namXuatBan[namXuatBan.length-1]==='.');
+
+        do {
+            soQuyen = prompt("Nhập vào số quyển sách: ");
+        }while (parseInt(soQuyen)<0 || parseFloat(soQuyen)!=soQuyen || parseFloat(soQuyen)!==parseInt(soQuyen) || soQuyen[soQuyen.length-1]==='.');
+
+        namXuatBan = parseInt(namXuatBan);
+        soQuyen = parseInt(soQuyen);
+        tinhTrangSach = soQuyen > 0;
+        let sach = new Sach(maSoSach, tenSach, namXuatBan, soQuyen, tinhTrangSach);
+        arraySach.push(sach);
+        alert("Thêm sách mới thành công!")
+        display(arraySach);
+    }
+    function display(array) {
+        let tableString = '<table border="1">\n' +
+            '    <tr style="background-color: antiquewhite">\n' +
+            '        <th>STT</th>\n' +
+            '        <th>Mã số sách</th>\n' +
+            '        <th>Tên sách</th>\n' +
+            '        <th>Năm xuất bản</th>\n' +
+            '        <th>Số quyển</th>\n' +
+            '        <th>Tình trạng</th>\n' +
+            '    </tr>\n';
+        for (let i=0; i<array.length; i++){
+            tableString += '    <tr>\n' +
+                '        <td>'+(i+1)+'</td>\n' +
+                '        <td>'+array[i].getMaSoSach()+'</td>\n' +
+                '        <td>'+array[i].getTenSach()+'</td>\n' +
+                '        <td>'+array[i].getNamXuatBan()+'</td>\n' +
+                '        <td>'+array[i].getSoQuyen()+'</td>\n' +
+                '        <td>'+array[i].getTinhTrangSach()+'</td>\n' +
+                '    </tr>\n';
+        }
+        tableString += '</table>';
+        document.getElementById('hienthi').innerHTML = tableString;
+    }
+    let arraySach = [];
+    let sach1 = new Sach('10909', 'Cuốn theo chiều gió', 1990, 50, true);
+    let sach2 = new Sach('26998', 'Chí Phèo', 1988, 0, false);
+    let sach3 = new Sach('40777', 'Học java cơ bản', 2020, 12, true);
+    arraySach.push(sach1, sach2, sach3);
+    display(arraySach);
+</script>
+</body>
+</html>
